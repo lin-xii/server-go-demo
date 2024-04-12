@@ -8,7 +8,9 @@ import (
 
 func main() {
 	r := gin.Default()
-	r.GET("/json", func(c *gin.Context) {
+	apiRouter := r.RouterGroup.Group("/api")
+	// apiRouter := gin.RouterGroup
+	apiRouter.GET("/json", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "hello world by gin",
 		})
